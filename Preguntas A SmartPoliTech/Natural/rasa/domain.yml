@@ -1,0 +1,37 @@
+actions:
+- action_default_ask_affirmation
+entities:
+- intervalo
+- time
+- lugares
+- sensor
+- operacion
+- operacion_temporal
+- hora_fin
+- edificio
+- medida
+- medida_limite
+- ocupacion
+- nombre
+- espacio
+- hora_inicio
+- orientacion
+
+intents:
+- busquedas_sensor:
+    triggers: action_default_ask_affirmation
+- pregunta_rango_temporal:
+    triggers: action_default_ask_affirmation
+- busquedas_temporales:
+    triggers: action_default_ask_affirmation
+- preguntas_orientacion:
+    triggers: action_default_ask_affirmation
+- pregunta_ocupacion:
+    triggers: action_default_ask_affirmation
+- espacio:
+    triggers: action_default_ask_affirmation
+
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 0
+

@@ -1,0 +1,42 @@
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: es #"es2"
+pipeline:
+
+- name: "WhitespaceTokenizer" #"WhitespaceTokenizer" #"SpacyTokenizer"
+  intent_tokenization_flag: True
+- name: "RegexFeaturizer"
+- name: "CountVectorsFeaturizer"
+  analyzer: "char_wb"
+  min_ngram: 1
+  max_ngram: 4
+  use_shared_vocab: True
+- name: "DucklingHTTPExtractor"
+  url: "http://localhost:8000"
+  dimensions: ["time", "quantity"] # a lo mejor vale la pena sacar las medidas también de aquí.
+  locale: "es_ES"
+  timezone: "Europe/Madrid"
+  timeout : 3
+- name: "CRFEntityExtractor"
+- name: "EntitySynonymMapper"
+- name: "EmbeddingIntentClassifier"
+  batch_strategy: sequence #ver diferencia
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+policies:
+  - name: MemoizationPolicy
+  - name: KerasPolicy
+  - name: MappingPolicy
+
+
+
+#- name: "SpacyFeaturizer"
+  #- name: "SpacyEntityExtractor"
+  # dimensions to extract https://spacy.io/api/annotation#section-named-entities NO SIRVE porque el modelo en español está entrenado con la wikipedia
+  #dimensions: ["QUANTITY", "DATE", "CARDINAL", "ORDINAL"]
+
+#- name: "SpacyNLP"
+  # language model to load
+#  model: "es_core_news_sm" # "es_core_news_sm" "es_core_news_md"
+#  case_sensitive: false

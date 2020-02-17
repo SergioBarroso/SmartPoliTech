@@ -1,0 +1,93 @@
+#De momento no se va a utilizar esto
+slots:
+  consumo_agua:
+    max_value: 10000.0
+    min_value: 0.0
+    type: float
+  consumo_electricidad:
+    max_value: 10000.0
+    min_value: 0.0
+    type: float
+  edificios:
+    type: categorical
+    values:
+    - informatica
+    - telecomunicacion
+    - edificacion
+    - obras
+    - central
+    - investigacion
+    - politecnica
+  espacio:
+    type: categorical
+    values:
+    - clase
+    - laboratorio
+    - despacho
+    - comun
+    - aseo
+  estaciones:
+    type: categorical
+    values:
+    - primavera
+    - verano
+    - otoño
+    - invierno
+  hora:
+    type: text
+  humedad:
+    max_value: 100.0
+    min_value: 0
+    type: float
+  lugar:
+    type: text
+  nivel_co2:
+    max_value: 10000.0
+    min_value: 0.0
+    type: float
+  ocupacion:
+    type: categorical
+    values:
+    - ocupada
+    - desocupada
+  operacion:
+    type: categorical
+    values:
+    - superior
+    - inferior
+    - igual
+    - entre
+    - mas
+    - menos
+    - media
+    - total
+  orientacion:
+    type: categorical
+    values:
+    - norte
+    - sur
+    - este
+    - oeste
+  sensor:
+    type: categorical
+    values:
+    - agua
+    - luz
+    - humedad
+    - temperatura
+    - co2
+  temperatura:
+    max_value: 50.0
+    min_value: -20.0
+    type: float
+  tiempo:
+    type: categorical
+    values:
+    - hora
+    - dia
+    - semana
+    - mes
+    - año
+    - mañana
+    - tarde
+    - noche
